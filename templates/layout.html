@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>temperatura</title>
+    <style>
+        div{
+            max-width: 12cm;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #F5F5F5;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        img{
+            width: 90%;
+            border-radius: 10px;
+        }
+
+        a:link, a:visited {
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            background-color: #e9f7fb;
+            border-radius: 10px;
+        }
+
+        a:hover, a:active {
+          background-color: #cfedf7;
+          border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+    {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
