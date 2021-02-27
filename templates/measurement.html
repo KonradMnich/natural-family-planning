@@ -2,9 +2,13 @@
 
 {% block content %}
 <h1>Czas na pomiar!</h1>
+
 <form action="summary" method="post">
-    <label for="temp">Temperatura w °C:</label></br>
-    <input type="text" name="temp", placeholder="36.6">
+    <input type="text" name="temp", placeholder="36.6 °C">
     <input type="submit" value="Wyślij">
+</form>
+
+<form action="home">
+    <input type="submit" value="Strona startowa">
 </form>
 {% endblock %}

@@ -33,7 +33,7 @@ def asses_temperature(temperature):
             message = f"Powiało chłodem (wynik: {temperature} °C). " \
                       f"Powtórzyć pomiar?"
         else:
-            message = f"Zmierzono {temperature} °C, pomiar wykonany poprawnie."
+            message = f"Zmierzono {temperature} °C."
     except ValueError:
         message = "Temperatura wprowadzona niepoprawnie, spróbuj jeszcze raz."
 

@@ -3,7 +3,16 @@
 {% block content %}
 <h1>Ocena pomiaru</h1>
 <p>{{ message }}</p></br>
-<a href="visualisation">Przejdź do wykresu</a></br>
-<a href="measurement">Powtórz</a></br>
-<a href="home">Wróć do początku</a></br>
+
+<form action="visualisation">
+    <input type="submit" value="Wykres">
+</form>
+
+<form action="measurement">
+    <input type="submit" value="Pomiar">
+</form>
+
+<form action="home">
+    <input type="submit" value="Strona startowa">
+</form>
 {% endblock %}
