@@ -1,7 +1,6 @@
 from datetime import datetime, date
 import pandas as pd
 import pathlib
-import seaborn as sns
 
 
 def asses_temperature(temperature):
@@ -33,7 +32,7 @@ def asses_temperature(temperature):
             message = f"Powiało chłodem (wynik: {temperature} °C). " \
                       f"Powtórzyć pomiar?"
         else:
-            message = f"Zmierzono {temperature} °C."
+            message = f"Zmierzono {temperature} °C"
     except ValueError:
         message = "Temperatura wprowadzona niepoprawnie, spróbuj jeszcze raz."
 
@@ -57,6 +56,7 @@ def save_temperature(temperature, path="temperatures.csv"):
 
 
 def create_plot(path="temperatures.csv"):
+    path = pathlib.Path(__file__).parent / path
     #remove old file
     image_folder = pathlib.Path(__file__).parent / "static"
     to_delete = image_folder.glob("temperatures*")
@@ -66,23 +66,24 @@ def create_plot(path="temperatures.csv"):
     # read data
     data = pd.read_csv(path)
     # set plot style
-    sns.set_theme()
+    #sns.set_theme()
 
     # generate plot
     my_plot = data.plot(
         x="date",
         y="temperature",
         xlabel="Data",
-        ylabel="Temperatura [C]",
+        ylabel="Temperatura [°C]",
         title="Pomiary temperatury",
         style="o--",
         legend=False
     )
     my_fig = my_plot.get_figure()
     # timestamp generated to prevent browsers from caching
-    image_path = f"static/temperatures_{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}.svg"
-    my_fig.savefig(image_path, format="svg")
-    return image_path
+    image_name = f"temperatures_{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}.svg"
+    save_path = pathlib.Path(__file__).parent / "static" / image_name
+    my_fig.savefig(save_path, format="svg")
+    return "/static/" + image_name
 
 
 if __name__ =="__main__":

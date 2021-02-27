@@ -4,6 +4,7 @@ import backend_code
 
 app = flask.Flask(__name__)
 
+
 @app.route("/home")
 @app.route("/")
 def home():
@@ -13,6 +14,11 @@ def home():
 @app.route("/measurement")
 def measurement():
     return flask.render_template("measurement.html")
+
+
+@app.route("/mucus")
+def mucus():
+    return flask.render_template("mucus.html")
 
 
 @app.route("/summary", methods=["post", "get"])
@@ -27,6 +33,11 @@ def summary():
         backend_code.save_temperature(temperature)
 
     return flask.render_template("summary.html", message=message)
+
+
+@app.route("/summary_mucus", methods=["post", "get"])
+def summary_mucus():
+    return flask.render_template("summary_mucus.html")
 
 
 @app.route("/visualisation")

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Ocena pomiaru</h1>
+<p>{{ message }}</p></br>
+
+<form action="visualisation">
+    <input type="submit" value="Wykres">
+</form>
+
+<form action="mucus">
+    <input type="submit" value="Ocena śluzu">
+</form>
+
+<form action="home">
+    <input type="submit" value="Strona startowa">
+</form>
+{% endblock %}
